@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buon Compleanno, Amore Mio!</title>
+  <meta name="description" content="Sito di compleanno romantico con carosello di foto, timeline e conto alla rovescia." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="title">Buon Compleanno, Amore Mio!</h1>
+      <p class="subtitle">Un piccolo spazio per celebrare te e i nostri ricordi 💖</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sezione Hero con cuori fluttuanti e fiori luminosi -->
+    <section class="hero" aria-label="Messaggio principale">
+      <div class="container">
+        <h2 class="hero__headline">Buon Compleanno, Amore Mio!</h2>
+        <p class="hero__tagline">Oggi festeggiamo te, la tua luce e tutti i momenti bellissimi insieme.</p>
+        <div class="countdown" id="countdown" aria-live="polite" data-target="2026-12-31T20:00:00">
+          <div class="countdown__block"><span id="cd-days">0</span><small>giorni</small></div>
+          <div class="countdown__block"><span id="cd-hours">0</span><small>ore</small></div>
+          <div class="countdown__block"><span id="cd-mins">0</span><small>min</small></div>
+          <div class="countdown__block"><span id="cd-secs">0</span><small>sec</small></div>
+        </div>
+        <details class="countdown__settings">
+          <summary>Imposta/Personalizza il momento della sorpresa</summary>
+          <label for="surprise-datetime">Data e ora della sorpresa:</label>
+          <input type="datetime-local" id="surprise-datetime" />
+          <button id="save-surprise" class="btn">Salva</button>
+          <p class="hint">Suggerimento: puoi anche modificare l'attributo <code>data-target</code> nel codice HTML.</p>
+        </details>
+      </div>
+      <div class="floating floating--hearts" aria-hidden="true"></div>
+      <div class="floating floating--flowers" aria-hidden="true"></div>
+    </section>
+
+    <!-- Carosello di foto -->
+    <section class="section" aria-label="I nostri ricordi">
+      <div class="container">
+        <header class="section__header">
+          <h3>I nostri ricordi</h3>
+          <p>Carosello con le nostre foto. Aggiungi nuove immagini nella cartella <code>assets/photos</code> e nel file <code>assets/photos/photos.json</code>. Oppure caricale qui sotto (solo per questa sessione).</p>
+        </header>
+
+        <div class="carousel" role="region" aria-roledescription="carosello" aria-label="Carosello foto" tabindex="0">
+          <button class="carousel__btn prev" aria-label="Foto precedente">❮</button>
+          <div class="carousel__track" id="carousel-track"></div>
+          <button class="carousel__btn next" aria-label="Foto successiva">❯</button>
+        </div>
+
+        <div class="uploader">
+          <label class="btn btn--ghost" for="photo-input">Aggiungi foto (non vengono salvate nel sito)</label>
+          <input id="photo-input" type="file" accept="image/*" multiple />
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline dei momenti più belli -->
+    <section class="section" aria-label="La nostra timeline">
+      <div class="container">
+        <header class="section__header">
+          <h3>I nostri momenti più belli</h3>
+          <p>Modifica <code>assets/timeline.json</code> per personalizzare titoli, date e descrizioni.</p>
+        </header>
+        <ol class="timeline" id="timeline" aria-label="Timeline dei ricordi"></ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Creato con ❤️ per te</p>
+    </div>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
